@@ -1,0 +1,364 @@
+:root {
+  --primary: #1f184e;
+  --accent: #3b3391;
+  --text: #333;
+  --muted: #777;
+}
+
+.zamar-contact {
+  /* margin-top: 100px; */
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 4rem 2rem;
+  background-color: var(--color-background);
+}
+
+.zamar-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.zamar-header h1 {
+  color: var(--color-primary);
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.zamar-header p {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.zamar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Updated zamar-form styles */
+.zamar-form {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  transition: all 0.3s ease;
+  max-width: 100%;
+  height: fit-content;
+  border: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+.zamar-form:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 48px var(--shadow-color);
+}
+
+.zamar-form h2 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.zamar-form h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--accent));
+  border-radius: 2px;
+}
+
+/* Form field styling */
+.form-field {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-light);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: var(--color-white);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-field input:disabled,
+.form-field textarea:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-field textarea {
+  min-height: 120px;
+  max-height: 200px;
+  line-height: 1.6;
+}
+
+/* Submit button styling */
+.submit-button {
+  background: linear-gradient(135deg, var(--color-primary), var(--accent));
+  color: var(--color-white);
+  padding: 0.875rem 1.5rem;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, var(--accent), var(--color-primary));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
+}
+
+.submit-button:active {
+  transform: translateY(-1px);
+}
+
+.submit-button.loading {
+  opacity: 0.8;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.submit-button.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--color-white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form status styling */
+.form-status {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid transparent;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-status.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.form-status.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+/* Info box styles (unchanged) */
+.zamar-info-box {
+  background-color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.zamar-info-box h2 {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.zamar-info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.zamar-info-item:hover {
+  transform: translateX(5px);
+}
+
+.zamar-info-item .icon {
+  color: var(--color-primary);
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.zamar-info-item p {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.zamar-info-item a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.zamar-info-item a:hover {
+  color: var(--color-secondary);
+}
+
+.zamar-map {
+  margin-top: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.zamar-map iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+/* Legacy button styles (for backward compatibility) */
+.zamar-form button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.6rem;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.2rem;
+}
+
+.zamar-form button:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.zamar-form button.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .zamar-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .zamar-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .zamar-form {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .zamar-form h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .zamar-contact {
+    padding: 2rem 1rem;
+  }
+
+  .zamar-header h1 {
+    font-size: 2rem;
+  }
+
+  .zamar-form,
+  .zamar-info-box {
+    padding: 1.5rem;
+  }
+
+  .zamar-form {
+    padding: 1.25rem;
+    margin: 0 0.5rem;
+  }
+}

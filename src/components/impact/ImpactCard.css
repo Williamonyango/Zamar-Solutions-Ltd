@@ -1,0 +1,33 @@
+.impact-item {
+  text-align: center;
+}
+
+.impact-number {
+  margin-bottom: 1rem;
+}
+
+.impact-number .number {
+  font-family: "Work Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  /* color: var(--white); */
+  color: white;
+}
+
+.impact-number .suffix {
+  font-family: "Work Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  /* color: rgb(244, 244, 250); */
+  color: white;
+  margin-left: 0.25rem;
+}
+
+.impact-heading {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  /* color: var(--white); */
+  color: #ffff;
+  text-transform: uppercase;
+}
