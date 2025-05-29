@@ -13,5 +13,6 @@ jspm_packages/
 .repl_history
 # dotenv environment variables file
 .env
+package-lock.json
 
 
