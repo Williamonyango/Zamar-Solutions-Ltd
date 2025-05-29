@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding: 0;
   width: 100%;
   z-index: 1000;
   padding: 0.7rem 2rem;
@@ -19,7 +20,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
+  /* margin: 0 2px; */
 }
 
 .navbar-logo {
@@ -30,6 +31,7 @@
   display: flex;
   align-items: center;
   transition: color 0.3s ease;
+  font-size: 1.2rem;
 }
 
 .navbar.scrolled .navbar-logo {
@@ -37,7 +39,11 @@
 }
 
 .logo-img {
-  height: 40px;
+  height: 55px;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  object-fit: cover;
   margin-right: 10px;
   filter: brightness(0) invert(1);
   transition: all 0.3s ease;

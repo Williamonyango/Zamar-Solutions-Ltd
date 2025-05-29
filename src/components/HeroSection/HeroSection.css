@@ -260,7 +260,7 @@ body {
   position: absolute;
   width: 230px;
   height: 280px;
-  object-fit: fill;
+  object-fit: cover;
   box-shadow: 0 4px 12px var(--shadow-color);
   transition: transform 0.3s ease;
   border-radius: 4px;
@@ -272,6 +272,12 @@ body {
   --index: 0;
   transform: rotateY(calc(360deg / var(--total) * var(--index)))
     translateZ(300px);
+
+  /* backface-visibility: hidden; */
+  /* -webkit-backface-visibility: hidden; */
+  /* transform-style: preserve-3d;
+  will-change: transform;
+  image-rendering: auto; */
 }
 
 .carousel-3d img:hover {

@@ -58,8 +58,8 @@ const HeroSection = () => {
           <h1>Building Brands, Empowering Teams</h1>
           <p>
             Zamar Solutions is a leading experiential marketing and branding
-            agency with 7 years of expertise in retail marketing, brand
-            activations and more.
+            agency with more than 7 years of expertise in retail marketing,
+            brand activations and more.
           </p>
           <div className="hero-buttons">
             <Link to="/services" className="btn">

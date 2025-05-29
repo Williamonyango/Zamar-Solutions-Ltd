@@ -113,8 +113,7 @@ h1 {
 }
 
 h2.section-title {
-  font-family: "Playfair Display", serif; /* Playfair Display for section titles */
-  font-size: 2.5rem;
+  font-family: "Playfair Display", serif;
   font-weight: 500;
   line-height: 1.3;
   margin-bottom: 1.5rem;

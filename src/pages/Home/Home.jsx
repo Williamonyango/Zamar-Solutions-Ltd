@@ -226,7 +226,7 @@ const Home = () => {
     <>
       <HeroSection />
       <div className="core-section">
-        <Title order={2} className="core-title">
+        <Title order={2} className="section-title">
           At Our Core
         </Title>
         <div className="carousel-container">
