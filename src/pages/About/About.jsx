@@ -18,9 +18,13 @@ const About = () => {
         <div className="container">
           <h1 className="hero-heading">Who We Are</h1>
           <p className="hero-description">
-            At Zamar Solutions Ltd, we specialize in experiential marketing and
-            branding solutions that help businesses connect with their target
-            audience in meaningful and impactful ways.
+            At Zamar Solutions Ltd, we are a dynamic experiential marketing
+            agency that specializes in creating impactful brand experiences. We
+            offer a blend of branding solutions and staff outsourcing services,
+            helping businesses connect with their target audiences in meaningful
+            and results-driven ways. With a focus on engagement, visibility, and
+            execution excellence, Zamar Solutions delivers tailor-made campaigns
+            and workforce solutions that drive brand growth and market presence.
           </p>
         </div>
       </section>

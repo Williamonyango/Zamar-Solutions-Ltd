@@ -23,7 +23,6 @@ const Services = () => {
 
   const SLIDE_DURATION = 5000;
   const SWIPE_THRESHOLD = 50;
-  console.log("servicesimages", servicesimages);
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -161,12 +160,14 @@ const Services = () => {
             We Offer the Best in Branding Services
           </h1>
           <p className="hero-description">
-            Zamar Solutions delivers exceptional experiential marketing across
-            East Africa, specializing in brand activations, retail marketing,
-            strategic branding, and printing solutions. With innovative
-            thinking, flawless execution, and a results-driven approach, we
-            bring brands to life and connect them meaningfully with their
-            audiences.
+            Zamar Solutions Ltd is a leading experiential marketing agency in
+            Eastern Africa, delivering exceptional branding services, staff
+            outsourcing, and strategic marketing solutions. We specialize in
+            brand activations, retail marketing, printing solutions, strategic
+            branding, and staffing services, combining innovative thinking,
+            flawless execution, and a results-driven approach to every
+            campaign.At Zamar, we bring brands to life—connecting them
+            meaningfully with their audiences and creating lasting impact.
           </p>
           <div className="hero-buttons">
             <button

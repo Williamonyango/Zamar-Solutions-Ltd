@@ -1,3 +1,7 @@
+.services-page, .services-page *, .services-hero, .hero-heading, .hero-description, .hero-buttons, .button1, .button2, .section, .container, .section-title, .section-title1, .services-grid, .service-process, .process-steps, .cta-section, .cta-content, .cta-content h2, .cta-content p {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
 .services-page {
   width: 100%;
   overflow-x: hidden;

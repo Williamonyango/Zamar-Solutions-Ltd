@@ -337,3 +337,7 @@
     height: 200px;
   }
 }
+
+.product-page-container, .product-page-container *, .sidebar, .sidebar-title, .categories-list, .category-item, .category-button, .subcategory-section, .subcategory-title, .subcategory-button, .main-content, .header, .header h1, .header p, .product-section, .product-company, .product-grid, .product-card, .product-image, .close-popup, .spinner, .spin {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}

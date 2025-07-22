@@ -762,3 +762,7 @@
     font-size: 16px;
   }
 }
+
+.section, .section *, .core-section, .core-title, .carousel-container, .carousel, .values-row, .testimonials-slider, .value-card-wrapper, .testimonial-card-wrapper, .view-more-container, .why-choose-us-section, .why-us-container, .why-us-title, .why-us-grid, .services-section, .services-grid1, .service-card-wrapper, .service-card, .why-us-card, .cta-section, .cta-content, .cta-content h2, .cta-content p {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}

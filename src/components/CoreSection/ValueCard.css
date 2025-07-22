@@ -58,6 +58,10 @@
   flex: 1;
   margin: auto;
 }
+
+.value-card, .value-card h3, .value-card h4, .value-card p, .text-content {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
 @media (max-width: 768px) {
   .value-card {
     flex-direction: column;

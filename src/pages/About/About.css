@@ -19,6 +19,10 @@
   }
 }
 
+.about-page, .about-page *, .about-hero, .company-content, .mission-box, .vision-box, .impact-section, .team-section, .section-description, .team-grid, .impact-grid, .impact-item, .impact-number, .impact-heading, .team-member-heading, .team-member-position {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
 .about-hero {
   background-size: cover;
   background-position: center;
@@ -154,21 +158,21 @@
 }
 
 .impact-number .number {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--color-white);
 }
 
 .impact-number .suffix {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   color: var(--color-primary);
   margin-left: 0.25rem;
 }
 
 .impact-heading {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--color-white);

@@ -1,3 +1,7 @@
+.footer, .footer * {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
 .footer {
   margin-top: -2rem;
   background-color: #0f1538; /* Dark background for modern look */

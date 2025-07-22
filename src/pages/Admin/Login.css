@@ -168,3 +168,7 @@
 .admin-login-box button {
   animation-delay: 0.5s;
 }
+
+.admin-login-box, .admin-login-box h2, .admin-login-box label, .admin-login-box input, .admin-login-box button {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}

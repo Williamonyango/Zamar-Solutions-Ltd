@@ -1,3 +1,7 @@
+.testimonial-card, .testimonial-card *, .testimonial-content, .testimonial-text, .testimonial-author, .author-info h4, .author-info p {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
 .testimonial-card {
   background-color: white;
   border-radius: 8px;

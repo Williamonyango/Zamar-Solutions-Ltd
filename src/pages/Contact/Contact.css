@@ -5,6 +5,10 @@
   --muted: #777;
 }
 
+.zamar-contact, .zamar-contact *, .zamar-header, .zamar-header h1, .zamar-header p, .zamar-form, .zamar-form h2, .form-field, .form-field label, .form-field input, .form-field textarea, .submit-button, .form-status, .zamar-info-box, .zamar-info-box h2, .zamar-info-item, .zamar-info-item p, .zamar-info-item a {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
 .zamar-contact {
   /* margin-top: 100px; */
   max-width: 1200px;

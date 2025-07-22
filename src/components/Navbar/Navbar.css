@@ -1,3 +1,7 @@
+.navbar, .navbar * {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
 .navbar {
   position: fixed;
   top: 0;

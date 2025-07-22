@@ -57,8 +57,7 @@ const Layout = () => {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar-container">
           <Link to="/" className="navbar-logo">
-            <img src="/logo.svg" alt="Logo" className="logo-img" />
-            <span>Zamar</span> Solutions Ltd
+            <img src="/zamar.svg" alt="Logo" className="logo-img" />
           </Link>
 
           <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>

@@ -79,3 +79,7 @@
   transform: translateY(0);
   display: block;
 }
+
+.service-card, .service-card h3, .service-card p {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
