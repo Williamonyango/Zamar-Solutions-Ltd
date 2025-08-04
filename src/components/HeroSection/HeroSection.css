@@ -44,7 +44,6 @@ body {
   height: 100%;
   width: 100%;
   padding: 0 2rem;
-  /* max-width: 1440px; */
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
@@ -252,9 +251,11 @@ body {
 
 .carousel-3d img {
   position: absolute;
+  /* aspect-ratio: 4/5; */
   width: 230px;
   height: 280px;
-  object-fit: cover;
+  margin-right: 100%;
+  object-fit: fill;
   box-shadow: 0 4px 12px var(--shadow-color);
   transition: transform 0.3s ease;
   border-radius: 4px;
@@ -266,12 +267,6 @@ body {
   --index: 0;
   transform: rotateY(calc(360deg / var(--total) * var(--index)))
     translateZ(300px);
-
-  /* backface-visibility: hidden; */
-  /* -webkit-backface-visibility: hidden; */
-  /* transform-style: preserve-3d;
-  will-change: transform;
-  image-rendering: auto; */
 }
 
 .carousel-3d img:hover {
