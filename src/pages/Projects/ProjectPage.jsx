@@ -33,7 +33,6 @@ export default function ProductPage() {
       setLoading(true);
       try {
         const response = await axios.get(
-          // "https://zamarsolutions.co.ke/Zamar/api/get_images.php"
           "https://adminserver.zamarsolutions.co.ke/images"
         );
         const grouped = {};

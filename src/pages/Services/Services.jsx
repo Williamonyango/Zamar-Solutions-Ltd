@@ -29,7 +29,6 @@ const Services = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          // "https://zamarsolutions.co.ke/Zamar/api/get_images.php"
           "https://adminserver.zamarsolutions.co.ke/images"
         );
         const items = response.data;
