@@ -5,16 +5,39 @@
   --muted: #777;
 }
 
-.zamar-contact, .zamar-contact *, .zamar-header, .zamar-header h1, .zamar-header p, .zamar-form, .zamar-form h2, .form-field, .form-field label, .form-field input, .form-field textarea, .submit-button, .form-status, .zamar-info-box, .zamar-info-box h2, .zamar-info-item, .zamar-info-item p, .zamar-info-item a {
+* {
+  box-sizing: border-box;
+}
+
+.zamar-contact,
+.zamar-contact *,
+.zamar-header,
+.zamar-header h1,
+.zamar-header p,
+.zamar-form,
+.zamar-form h2,
+.form-field,
+.form-field label,
+.form-field input,
+.form-field textarea,
+.submit-button,
+.form-status,
+.zamar-info-box,
+.zamar-info-box h2,
+.zamar-info-item,
+.zamar-info-item p,
+.zamar-info-item a {
   font-family: "Poppins", Helvetica, Arial, sans-serif;
 }
 
 .zamar-contact {
-  /* margin-top: 100px; */
   max-width: 1200px;
   margin: 20px auto;
+  margin-top: 120px; /* Add space for navbar */
   padding: 4rem 2rem;
   background-color: var(--color-background);
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .zamar-header {
@@ -41,6 +64,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Updated zamar-form styles */
@@ -51,8 +76,10 @@
   box-shadow: 0 8px 32px var(--shadow-color);
   transition: all 0.3s ease;
   max-width: 100%;
+  width: 100%;
   height: fit-content;
   border: 1px solid rgba(79, 70, 229, 0.1);
+  box-sizing: border-box;
 }
 
 .zamar-form:hover {
@@ -229,6 +256,8 @@
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px var(--shadow-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .zamar-info-box h2 {
@@ -315,9 +344,22 @@
 
 /* Responsive design */
 @media (max-width: 992px) {
+  .zamar-contact {
+    padding: 3rem 1.5rem;
+    margin-top: 110px; /* Adjust for smaller navbar on tablet */
+  }
+
   .zamar-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .zamar-form,
+  .zamar-info-box {
+    max-width: 600px;
+    width: 100%;
   }
 
   .zamar-header h1 {
@@ -326,9 +368,31 @@
 }
 
 @media (max-width: 768px) {
+  .zamar-contact {
+    padding: 2rem 1rem;
+    margin: 10px auto;
+    margin-top: 100px; /* Adjust for mobile navbar */
+  }
+
+  .zamar-grid {
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .zamar-form,
+  .zamar-info-box {
+    max-width: 500px;
+    width: 100%;
+  }
+
   .zamar-form {
     padding: 1.5rem;
     border-radius: 12px;
+  }
+
+  .zamar-info-box {
+    padding: 1.5rem;
   }
 
   .zamar-form h2 {
@@ -349,20 +413,80 @@
 
 @media (max-width: 576px) {
   .zamar-contact {
-    padding: 2rem 1rem;
+    padding: 1.5rem 0.75rem;
+    margin: 5px auto;
+    margin-top: 90px; /* Adjust for smaller mobile navbar */
+  }
+
+  .zamar-header {
+    margin-bottom: 2rem;
   }
 
   .zamar-header h1 {
     font-size: 2rem;
   }
 
-  .zamar-form,
-  .zamar-info-box {
-    padding: 1.5rem;
+  .zamar-header p {
+    font-size: 1rem;
+    padding: 0 0.5rem;
   }
 
-  .zamar-form {
+  .zamar-grid {
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .zamar-form,
+  .zamar-info-box {
     padding: 1.25rem;
-    margin: 0 0.5rem;
+    margin: 0;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .zamar-info-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .zamar-map {
+    margin-top: 1.5rem;
+  }
+
+  .zamar-map iframe {
+    height: 250px;
+  }
+}
+
+/* Extra small screens - prevent any horizontal overflow */
+@media (max-width: 400px) {
+  .zamar-contact {
+    padding: 1rem 0.5rem;
+    margin: 0 auto;
+    margin-top: 80px; /* Adjust for very small screens */
+    width: 100%;
+  }
+
+  .zamar-grid {
+    justify-items: center;
+    align-items: center;
+  }
+
+  .zamar-form,
+  .zamar-info-box {
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .zamar-header h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+
+  .zamar-header p {
+    font-size: 0.95rem;
   }
 }

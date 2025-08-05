@@ -29,14 +29,18 @@ const HeroSection = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          carouselRef.current.style.animationPlayState =
-            entry.isIntersecting && !isPaused ? "running" : "paused";
+          if (carouselRef.current) {
+            carouselRef.current.style.animationPlayState =
+              entry.isIntersecting && !isPaused ? "running" : "paused";
+          }
         });
       },
       { threshold: 0.1 }
     );
 
-    observer.observe(carouselRef.current);
+    if (carouselRef.current) {
+      observer.observe(carouselRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -45,9 +49,11 @@ const HeroSection = () => {
 
   const handleCarouselClick = () => {
     setIsPaused(!isPaused);
-    carouselRef.current.style.animationPlayState = isPaused
-      ? "running"
-      : "paused";
+    if (carouselRef.current) {
+      carouselRef.current.style.animationPlayState = isPaused
+        ? "running"
+        : "paused";
+    }
   };
 
   return (
