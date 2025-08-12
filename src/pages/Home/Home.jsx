@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStore } from "zustand/react";
 import DynamicContentStore from "../../libs/dynamic_content";
 import HeroSection from "../../components/HeroSection/HeroSection";
-import ServiceCard from "../../components/ServiceCard/ServiceCard";
-import "./Home.css";
 import ValueCard from "../../components/CoreSection/ValueCard";
-import { Flex, Title } from "@mantine/core";
+import { Title } from "@mantine/core";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 // Import icons for Why Choose Us section
 import expertiseIcon from "/icons/expertise.svg";
@@ -16,78 +13,42 @@ import innovationIcon from "/icons/innovation.svg";
 import qualityIcon from "/icons/quality.svg";
 import supportIcon from "/icons/support.svg";
 
+import "./Home.css";
+
 const Home = () => {
   const navigate = useNavigate();
   const [clients, setClients] = React.useState([]);
-  const [loading, setLoading] = useState(true); // Client loading state
-  const [servicesLoading, setServicesLoading] = useState(true); // Service loading state
+  const [loading, setLoading] = useState(true);
   const [activeValueIndex, setActiveValueIndex] = useState(0);
-  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
   const valuesRowRef = useRef(null);
-  const testimonialsSliderRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [servicesimages, setServicesimages] = useState([]);
-
-  // Fetch services images from the API
-  useEffect(() => {
-    const fetchServices = async () => {
-      setServicesLoading(true); // Set loading to true before fetching
-      try {
-        const response = await axios.get(
-          "https://zamarsolutions.co.ke/Zamar/api/get_images.php"
-        );
-        const items = response.data;
-        const filteredServices = items.filter(
-          (item) => item.category === "Services"
-        );
-        setServicesimages(filteredServices);
-        setServicesLoading(false); // Turn off loading when data is received
-      } catch (error) {
-        console.error("Error fetching services:", error);
-        setServicesLoading(false); // Turn off loading on error
-      }
-    };
-    fetchServices();
-  }, []);
 
   // Check if the screen is mobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Fetch data from the API
+  // Fetch client logos
   useEffect(() => {
     const clientLogos = async () => {
-      setLoading(true); // Set loading to true before fetching
+      setLoading(true);
       try {
         const response = await axios.get(
           "https://adminserver.zamarsolutions.co.ke/images"
         );
-        const items = response.data;
-
-        if (!Array.isArray(items)) {
-          console.error("Expected an array but got:", items);
-          setLoading(false); // Turn off loading on error
-          return [];
-        }
-
+        const items = Array.isArray(response.data) ? response.data : [];
         const filtered = items.filter((item) => item.category === "Client");
         setClients(filtered);
-        setLoading(false); // Turn off loading when data is received
       } catch (error) {
         console.error("Error fetching client logos:", error);
-        setLoading(false); // Turn off loading on error
-        return [];
+      } finally {
+        setLoading(false);
       }
     };
-
     clientLogos();
   }, []);
 
@@ -115,11 +76,9 @@ const Home = () => {
           "<p>We value transparency, teamwork, and technology-driven excellence in all we do.</p>",
       },
     ];
-
     DynamicContentStore.getState().fill("values", sampleValues);
   }, []);
 
-  // Get values from store
   const values = [...store.values.values()];
 
   // Scroll to specific value card - only active in mobile mode
@@ -139,23 +98,6 @@ const Home = () => {
     }
   };
 
-  // Scroll to specific testimonial card - only active in mobile mode
-  const scrollToTestimonialCard = (index) => {
-    if (isMobile && testimonialsSliderRef.current) {
-      const cards = testimonialsSliderRef.current.querySelectorAll(
-        ".testimonial-card-wrapper"
-      );
-      if (cards[index]) {
-        cards[index].scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-          block: "nearest",
-        });
-        setActiveTestimonialIndex(index);
-      }
-    }
-  };
-
   // Handle values carousel scroll - only in mobile mode
   const handleValuesScroll = () => {
     if (isMobile && valuesRowRef.current) {
@@ -163,8 +105,7 @@ const Home = () => {
       const cardWidth =
         valuesRowRef.current.querySelector(".value-card-wrapper")
           ?.offsetWidth || 0;
-      const gap = 16; // Approximated from your CSS
-
+      const gap = 16;
       const newIndex = Math.round(scrollLeft / (cardWidth + gap));
       if (
         newIndex !== activeValueIndex &&
@@ -172,26 +113,6 @@ const Home = () => {
         newIndex < values.length
       ) {
         setActiveValueIndex(newIndex);
-      }
-    }
-  };
-
-  // Handle testimonials carousel scroll - only in mobile mode
-  const handleTestimonialsScroll = () => {
-    if (isMobile && testimonialsSliderRef.current) {
-      const scrollLeft = testimonialsSliderRef.current.scrollLeft;
-      const cardWidth =
-        testimonialsSliderRef.current.querySelector(".testimonial-card-wrapper")
-          ?.offsetWidth || 0;
-      const gap = 40; // Approximated from your CSS
-
-      const newIndex = Math.round(scrollLeft / (cardWidth + gap));
-      if (
-        newIndex !== activeTestimonialIndex &&
-        newIndex >= 0 &&
-        newIndex < testimonials.length
-      ) {
-        setActiveTestimonialIndex(newIndex);
       }
     }
   };
@@ -208,99 +129,84 @@ const Home = () => {
     </div>
   );
 
-  // Service Card Skeleton Component
-  const ServiceCardSkeleton = () => (
-    <div className="service-card-wrapper">
-      <div className="service-card skeleton-card">
-        <div className="skeleton-image"></div>
-        <div className="skeleton-content">
-          <div className="skeleton-title"></div>
-          <div className="skeleton-description"></div>
-          <div className="skeleton-description"></div>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
-    <>
+    <div className="home-container">
       <HeroSection />
-      <div className="core-section">
-        <Title order={2} className="section-title">
-          At Our Core
-        </Title>
-        <div className="carousel-container">
-          {isMobile && (
-            <div className="nav-buttons values-nav-buttons">
-              <button
-                className="nav-btn prev-btn"
-                onClick={() => scrollToValueCard(activeValueIndex - 1)}
-                disabled={activeValueIndex === 0}
-              >
-                ←
-              </button>
-              <button
-                className="nav-btn next-btn"
-                onClick={() => scrollToValueCard(activeValueIndex + 1)}
-                disabled={activeValueIndex === values.length - 1}
-              >
-                →
-              </button>
-            </div>
-          )}
 
-          <div
-            className="values-row carousel"
-            ref={valuesRowRef}
-            onScroll={isMobile ? handleValuesScroll : undefined}
-          >
-            {values.map((value, index) => (
-              <div key={value.id} className="value-card-wrapper">
-                <ValueCard value={value} />
+      <section className="section core-section">
+        <div className="container">
+          <h2 className="section-title">At Our Core</h2>
+          <div className="carousel-container">
+            {isMobile && (
+              <div className="nav-buttons values-nav-buttons">
+                <button
+                  className="nav-btn prev-btn"
+                  onClick={() => scrollToValueCard(activeValueIndex - 1)}
+                  disabled={activeValueIndex === 0}
+                >
+                  ←
+                </button>
+                <button
+                  className="nav-btn next-btn"
+                  onClick={() => scrollToValueCard(activeValueIndex + 1)}
+                  disabled={activeValueIndex === values.length - 1}
+                >
+                  →
+                </button>
               </div>
-            ))}
-          </div>
+            )}
 
-          {isMobile && (
-            <div className="indicators values-indicators">
-              {values.map((_, index) => (
-                <div
-                  key={index}
-                  className={`indicator ${
-                    index === activeValueIndex ? "active" : ""
-                  }`}
-                  onClick={() => scrollToValueCard(index)}
-                />
+            <div
+              className="values-row carousel"
+              ref={valuesRowRef}
+              onScroll={isMobile ? handleValuesScroll : undefined}
+            >
+              {values.map((value) => (
+                <div key={value.id} className="value-card-wrapper">
+                  <ValueCard value={value} />
+                </div>
               ))}
             </div>
-          )}
+
+            {isMobile && (
+              <div className="indicators values-indicators">
+                {values.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`indicator ${
+                      index === activeValueIndex ? "active" : ""
+                    }`}
+                    onClick={() => scrollToValueCard(index)}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Our Services */}
       <section className="section services-section">
         <div className="container">
           <h2 className="section-title">Our Services</h2>
-          <div className="services-grid1">
-            {servicesLoading ? (
-              // Show skeleton cards while loading
-              <>
-                <ServiceCardSkeleton />
-                <ServiceCardSkeleton />
-                <ServiceCardSkeleton />
-              </>
-            ) : (
-              // Show actual service cards when loaded
-              servicesimages.slice(0, 3).map((service, index) => (
-                <div key={index} className="service-card-wrapper">
-                  <ServiceCard
-                    image={service.image_URL}
-                    icon={service.icon}
-                    title={service.title}
-                    description={service.description}
-                    className="service-card"
-                  />
-                </div>
-              ))
-            )}
+          <div className="services-text-grid">
+            <div className="service-text-card">
+              <h3>Activations</h3>
+              <p>
+                Roadshows, merchandising, promotions, market storms,
+                exhibitions, and seeding. We bring your brand to life with
+                impactful experiential campaigns that engage your audience
+                directly.
+              </p>
+            </div>
+            <div className="service-text-card">
+              <h3>Branding</h3>
+              <p>
+                Instore and outdoor branding solutions tailored to amplify your
+                brand presence, enhance visibility, and create a lasting
+                impression.
+              </p>
+            </div>
           </div>
           <div className="view-more-container">
             <button
@@ -312,6 +218,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       {/* Clients */}
       <section className="section clients-section">
         <div className="container">
@@ -325,7 +232,6 @@ const Home = () => {
                   <img src={client.image_URL} alt={client.name} />
                 </div>
               ))}
-
               {clients.map((client, index) => (
                 <div key={`dup-${index}`} className="client-logo">
                   <img src={client.image_URL} alt={client.name} />
@@ -336,7 +242,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us section */}
+      {/* Why Choose Us */}
       <section className="why-choose-us-section">
         <div className="why-us-container">
           <h2 className="why-us-title">Why Choose Us</h2>
@@ -398,14 +304,13 @@ const Home = () => {
               Get in touch with us today and let's create impactful marketing
               solutions together.
             </p>
-
             <Link to="/contact" className="btn">
               Contact Us
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

@@ -2,6 +2,7 @@
 .product-page-container {
   margin-top: 85px;
   display: flex;
+  margin-left: 2rem;
   gap: 16px;
   flex-direction: column;
   min-height: 100vh;
@@ -11,7 +12,6 @@
 /* Sidebar styling */
 .sidebar {
   width: 100%;
-
   padding: 16px;
   background-color: var(--color-white);
   height: auto;
@@ -338,6 +338,27 @@
   }
 }
 
-.product-page-container, .product-page-container *, .sidebar, .sidebar-title, .categories-list, .category-item, .category-button, .subcategory-section, .subcategory-title, .subcategory-button, .main-content, .header, .header h1, .header p, .product-section, .product-company, .product-grid, .product-card, .product-image, .close-popup, .spinner, .spin {
+.product-page-container,
+.product-page-container *,
+.sidebar,
+.sidebar-title,
+.categories-list,
+.category-item,
+.category-button,
+.subcategory-section,
+.subcategory-title,
+.subcategory-button,
+.main-content,
+.header,
+.header h1,
+.header p,
+.product-section,
+.product-company,
+.product-grid,
+.product-card,
+.product-image,
+.close-popup,
+.spinner,
+.spin {
   font-family: "Poppins", Helvetica, Arial, sans-serif;
 }

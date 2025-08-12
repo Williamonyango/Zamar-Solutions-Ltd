@@ -19,7 +19,22 @@
   }
 }
 
-.about-page, .about-page *, .about-hero, .company-content, .mission-box, .vision-box, .impact-section, .team-section, .section-description, .team-grid, .impact-grid, .impact-item, .impact-number, .impact-heading, .team-member-heading, .team-member-position {
+.about-page,
+.about-page *,
+.about-hero,
+.company-content,
+.mission-box,
+.vision-box,
+.impact-section,
+.team-section,
+.section-description,
+.team-grid,
+.impact-grid,
+.impact-item,
+.impact-number,
+.impact-heading,
+.team-member-heading,
+.team-member-position {
   font-family: "Poppins", Helvetica, Arial, sans-serif;
 }
 
@@ -55,7 +70,7 @@
 .about-hero .container {
   position: relative;
   z-index: 1;
-  margin-left: 5px;
+  margin-left: 2.3rem;
 }
 
 /* Company section */

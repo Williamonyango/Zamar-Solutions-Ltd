@@ -99,7 +99,8 @@ body {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 0;
+  margin: 1.5rem 0;
 }
 
 /* Typography */

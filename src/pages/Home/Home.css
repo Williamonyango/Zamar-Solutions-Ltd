@@ -1,18 +1,15 @@
-/* ===== General Layout ===== */
-.section {
-  padding: 6rem 0;
-  max-width: 100%;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
+.home-container {
+  background-color: var(--color-background);
+  padding: 4.8rem 0;
 }
+
+/* ===== General Layout ===== */
 
 /* ===== Core Section and Values Row ===== */
 .core-section {
   width: 90%;
   margin: 0 auto;
-  margin-bottom: -3rem;
-  padding: 1rem 0;
+  padding: 0;
 }
 
 .core-title {
@@ -39,9 +36,8 @@
   position: relative;
 }
 
-/* Desktop styles - values and testimonials in a row */
-.values-row,
-.testimonials-slider {
+/* values in a row */
+.values-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -72,92 +68,55 @@
 
 /* ===== Services Section ===== */
 .services-section {
-  position: relative;
-  padding-top: 0;
-  margin-bottom: -6rem;
-  background-color: var(--color-background);
+  margin: 0;
+  /* background-color: blue; */
+  padding: 0;
 }
-
-.services-grid1 {
+.services-text-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
-.service-card-wrapper {
-  display: block;
-  will-change: transform;
-  position: relative;
-}
-
-.service-card {
+.service-text-card {
   background-color: var(--color-white);
+  padding: 2rem;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 6px var(--shadow-color);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 0;
-  background: linear-gradient(
-    180deg,
-    var(--color-primary),
-    var(--color-secondary)
-  );
-  transition: height 0.6s ease;
-  border-radius: 0 0 5px 0;
+.service-text-card h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
-.service-card::after {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-light),
-    var(--color-secondary-light)
-  );
-  border-radius: 50%;
-  top: -60px;
-  left: -60px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+.service-text-card p {
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
-.service-card:hover {
+.service-text-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 15px var(--shadow-color);
 }
-
-.service-card:hover::before {
-  height: 100%;
-}
-
-.service-card:hover::after {
-  opacity: 1;
-}
-
-/* ===== View More Button ===== */
-.view-more-container {
+.services-section .view-more-container {
   text-align: center;
   margin-top: 1rem;
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .services-text-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== Why Choose Us Section ===== */
 .why-choose-us-section {
-  margin-top: -6rem;
   padding: 5px 20px 20px 20px;
   background: linear-gradient(
     135deg,
@@ -294,7 +253,6 @@
   position: relative;
   margin: 0;
   padding: 0;
-  margin-bottom: -6rem;
 }
 
 .clients-grid {
@@ -464,71 +422,6 @@
   font-size: 1.1rem;
 }
 
-/* ===== Service Card Skeleton Loading Effect ===== */
-.skeleton-card {
-  background: var(--color-white);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px var(--shadow-color);
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.skeleton-image {
-  height: 200px;
-  background: linear-gradient(
-    90deg,
-    var(--color-background) 25%,
-    var(--color-white) 50%,
-    var(--color-background) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  width: 100%;
-}
-
-.skeleton-content {
-  padding: 20px;
-}
-
-.skeleton-title {
-  height: 25px;
-  background: linear-gradient(
-    90deg,
-    var(--color-background) 25%,
-    var(--color-white) 50%,
-    var(--color-background) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  width: 70%;
-}
-
-.skeleton-description {
-  height: 12px;
-  background: linear-gradient(
-    90deg,
-    var(--color-background) 25%,
-    var(--color-white) 50%,
-    var(--color-background) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.skeleton-description:last-child {
-  width: 80%;
-}
-
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -540,6 +433,9 @@
 
 /* Mobile styles (max-width: 1024px) */
 @media (max-width: 1024px) {
+  .home-container {
+    padding: 3rem 0;
+  }
   .section {
     padding: 5rem 2rem;
   }
@@ -574,6 +470,10 @@
 
 /* Mobile styles (max-width: 768px) */
 @media (max-width: 768px) {
+  .home-container {
+    padding: 2rem 0;
+  }
+
   .section {
     padding: 4rem 1.5rem;
   }
@@ -763,6 +663,29 @@
   }
 }
 
-.section, .section *, .core-section, .core-title, .carousel-container, .carousel, .values-row, .testimonials-slider, .value-card-wrapper, .testimonial-card-wrapper, .view-more-container, .why-choose-us-section, .why-us-container, .why-us-title, .why-us-grid, .services-section, .services-grid1, .service-card-wrapper, .service-card, .why-us-card, .cta-section, .cta-content, .cta-content h2, .cta-content p {
+.section,
+.section *,
+.core-section,
+.core-title,
+.carousel-container,
+.carousel,
+.values-row,
+.testimonials-slider,
+.value-card-wrapper,
+.testimonial-card-wrapper,
+.view-more-container,
+.why-choose-us-section,
+.why-us-container,
+.why-us-title,
+.why-us-grid,
+.services-section,
+.services-grid1,
+.service-card-wrapper,
+.service-card,
+.why-us-card,
+.cta-section,
+.cta-content,
+.cta-content h2,
+.cta-content p {
   font-family: "Poppins", Helvetica, Arial, sans-serif;
 }
