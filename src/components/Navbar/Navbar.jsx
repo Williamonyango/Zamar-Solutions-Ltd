@@ -58,6 +58,7 @@ const Layout = () => {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo">
             <img src="/zamar.svg" alt="Logo" className="logo-img" />
+            <span className="logo-text">Building Brands, Empowering Teams</span>
           </Link>
 
           <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>

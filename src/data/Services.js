@@ -7,6 +7,7 @@ import wallbranding from "../assets/images/servicesImages/wallbranding.jpeg";
 import promotion from "../assets/images/servicesImages/promotion.png";
 import merchandising from "../assets/images/servicesImages/merchandising.jpeg";
 import marketStorms from "../assets/images/servicesImages/market-storms.png";
+import exhibitions from "../assets/images/servicesImages/exhibition.jpeg";
 
 export const services = [
   {
@@ -151,7 +152,7 @@ export const services = [
         title: "Exhibitions",
         description:
           "End-to-end trade show and expo support from booth design to staffing and lead capture.",
-        image: companyImg,
+        image: exhibitions,
         details: {
           overview:
             "We design, build, and run exhibition booths that showcase your offerings and drive qualified leads.",

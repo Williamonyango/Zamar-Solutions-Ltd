@@ -1,27 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./HeroSection.css";
+import heroImg from "../../assets/images/hero6.jpeg";
+import circleImg1 from "../../assets/images/hero6.jpeg";
+import circleImg from "../../assets/images/hero.jpeg";
 
 const HeroSection = () => {
   return (
-    <section className="hero">
-      <div className="hero-overlay" />
-      <div className="hero-container">
-        <div className="hero-content">
-          <h1>Building Brands, Empowering Teams</h1>
-          <p className="hero-subtitle">
-            Zamar Solutions is a leading experiential marketing and branding
-            agency with more than 7 years of expertise in retail marketing,
-            brand activations, and transformative digital experiences.
-          </p>
-          <div className="hero-buttons">
-            <Link to="/services" className="btn btn-primary">
-              Explore Services
-            </Link>
-            <Link to="/contact" className="btn btn-outline">
-              Request a Quote
-            </Link>
-          </div>
+    <section className="hero" style={{ backgroundImage: `url(${heroImg})` }}>
+      {/* Decorative circles */}
+      {/* <img
+        src={circleImg}
+        alt="decorative"
+        className="circle circle-top-right"
+      /> */}
+      <img
+        src={circleImg}
+        alt="decorative"
+        className="circle circle-bottom-left"
+      />
+
+      <div className="hero-overlay"></div>
+      <div className="hero-content">
+        <h1 className="hero-title">Building Brands,</h1>
+        <p className="hero-subtitle">Empowering Teams</p>
+        <div className="hero-buttons">
+          <a href="#services" className="btn btn-primary">
+            Our Services
+          </a>
+          <a href="#contact" className="btn btn-secondary">
+            Get a Quote
+          </a>
         </div>
       </div>
     </section>
