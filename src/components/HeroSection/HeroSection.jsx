@@ -3,8 +3,11 @@ import "./HeroSection.css";
 import heroImg from "../../assets/images/hero6.jpeg";
 import circleImg1 from "../../assets/images/hero6.jpeg";
 import circleImg from "../../assets/images/hero.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="hero" style={{ backgroundImage: `url(${heroImg})` }}>
       {/* Decorative circles */}
@@ -24,12 +27,19 @@ const HeroSection = () => {
         <h1 className="hero-title">Building Brands,</h1>
         <p className="hero-subtitle">Empowering Teams</p>
         <div className="hero-buttons">
-          <a href="#services" className="btn btn-primary">
+          <button
+            href="#services"
+            className="button1"
+            onClick={() => navigate("/services")}
+          >
             Our Services
-          </a>
-          <a href="#contact" className="btn btn-secondary">
+          </button>
+          <button
+            className="button2"
+            onClick={() => navigate("/contact")}
+          >
             Get a Quote
-          </a>
+          </button>
         </div>
       </div>
     </section>

@@ -1,3 +1,39 @@
+/* Button Styles */
+.button1,
+.button2 {
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  width: auto;
+}
+.button1 {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.button1:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow-color);
+}
+.button2 {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.button2:hover {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow-color);
+}
+
 /* Hero section */
 @keyframes fadeInUp {
   0% {
@@ -74,6 +110,10 @@
 }
 
 /* Company section */
+.about-company {
+  padding: 2rem 0 5rem 0;
+}
+
 .company-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -98,7 +138,6 @@
 /* Mission-vision section */
 .mission-vision {
   background-color: var(--color-background);
-  margin-top: -60px;
 }
 
 .mission-vision-grid {

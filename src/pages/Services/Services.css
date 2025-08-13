@@ -79,6 +79,7 @@
   font-weight: 600;
   border: none;
   box-shadow: 0 4px 12px var(--shadow-color);
+  width: auto;
 }
 .button1 {
   background-color: var(--color-primary);
@@ -101,6 +102,9 @@
   box-shadow: 0 6px 16px var(--shadow-color);
 }
 
+.services-main {
+  padding: 60px 0;
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;

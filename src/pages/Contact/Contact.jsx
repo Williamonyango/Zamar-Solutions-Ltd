@@ -131,7 +131,7 @@ const Contact = () => {
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 300 }}
             disabled={loading}
-            className={`submit-button ${loading ? "loading" : ""}`}
+            className={`button1 ${loading ? "loading" : ""}`}
           >
             {loading ? "Sending..." : "Submit"}
           </motion.button>

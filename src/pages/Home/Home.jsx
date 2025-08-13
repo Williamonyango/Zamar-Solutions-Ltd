@@ -210,7 +210,7 @@ const Home = () => {
           </div>
           <div className="view-more-container">
             <button
-              className="btn btn-large"
+              className="button1"
               onClick={() => navigate("/services")}
             >
               View All Services
@@ -304,7 +304,7 @@ const Home = () => {
               Get in touch with us today and let's create impactful marketing
               solutions together.
             </p>
-            <Link to="/contact" className="btn">
+            <Link to="/contact" className="button1">
               Contact Us
             </Link>
           </div>

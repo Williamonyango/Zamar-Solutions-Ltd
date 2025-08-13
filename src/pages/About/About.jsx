@@ -63,6 +63,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
       {/* mission section */}
       <section className="section mission-vision">
         <div className="container">

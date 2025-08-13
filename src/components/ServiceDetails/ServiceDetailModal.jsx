@@ -109,12 +109,12 @@ const ServiceDetailModal = ({ opened, onClose, service, category }) => {
         </div>
 
         <div className="modal-footer">
-          <button className="modal-btn modal-btn-secondary" onClick={onClose}>
+          <button className="button2" onClick={onClose}>
             Close
           </button>
           <a 
             href={`/contact?service=${encodeURIComponent(title)}`}
-            className="modal-btn modal-btn-primary"
+            className="button1"
           >
             Request a quote
           </a>
